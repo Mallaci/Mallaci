@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Oga Sir System</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        button { padding: 10px 20px; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Oga Sir Crypto Mini App</h1>
+    <p>Click the button to get user info</p>
+    <button onclick="showUserInfo()">Get User Info</button>
+    <p id="user-info"></p>
+
+    <script>
+        let tg = window.Telegram.WebApp;
+        tg.expand(); // Expands the app to full screen
+
+        function showUserInfo() {
+            let user = tg.initDataUnsafe.user;
+            document.getElementById('user-info').innerText =
+                `Hello, ${user.first_name} ${user.last_name}! Your ID: ${user.id}`;
+        }
+    </script>
+</body>
+</html>
